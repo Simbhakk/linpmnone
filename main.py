@@ -129,7 +129,12 @@ def start(client, message):
 @bot.on_message(filters.private & filters.text)
 def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     print(message.text)
-    user_id = message.from_user.id
+    id = message.from_user.id
+    if not await present_user(id):
+        try:
+            await add_user(id)
+        except:
+            pass
     if CHANNEL:
         fsub = handle_force_subscribe(client, message)
         if fsub == 400:
