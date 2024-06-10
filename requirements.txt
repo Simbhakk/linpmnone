@@ -1,7 +1,6 @@
 #reqire
 tgcrypto
 Pyrogram==2.0.93
-
 psutil
 flask
 telethon
