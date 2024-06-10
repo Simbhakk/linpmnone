@@ -130,9 +130,9 @@ def start(client, message):
 def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     print(message.text)
     id = message.from_user.id
-    if not await present_user(id):
+    if not present_user(id):
         try:
-            await add_user(id)
+            add_user(id)
         except:
             pass
     if CHANNEL:
