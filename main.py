@@ -149,7 +149,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
             time_diff = time.time() - last_message_time[message.from_user.id]
             if time_diff < time_limit:
                 time_remaining = int(time_limit - time_diff)
-                bot.send_message(message.chat.id, f"Send next link after {time_remaining} seconds.\n\nUse this bot- @Save_Restricted_contentx_Bot")
+                bot.send_message(message.chat.id, f"Send next link after {time_remaining} seconds.\n\nUse this bot:- @Save_Restricted_contentx_Bot for no limit on links.☺️")
                 return
         last_message_time[message.from_user.id] = time.time()
 
