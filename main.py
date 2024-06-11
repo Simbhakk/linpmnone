@@ -26,7 +26,7 @@ bot_token = getenv("TOKEN")
 api_hash = getenv("HASH") 
 api_id = getenv("ID")
 CHANNEL = getenv("CHANNEL")
-time_limit = 65
+time_limit = 63
 
 bot = Client("mybot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 #close
@@ -169,7 +169,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
             except FloodWait as fw:
                 hours, remainder = divmod(fw.value, 3600)
                 minutes, seconds = divmod(remainder, 60)
-                bot.send_message(message.chat.id, f"Try again after {hours} hours, {minutes} minutes, and {seconds} seconds due to floodwait from telegram.\n Or use our second bot:- @Save_Restricted_contentx_Bot 🤭", reply_to_message_id=message.id)
+                bot.send_message(message.chat.id, f"**Try again after {hours} hours, {minutes} minutes, and {seconds} seconds due to floodwait from telegram.\n Or use our second bot:- @Save_Restricted_contentx_Bot** 🤭", reply_to_message_id=message.id)
             except UsernameNotOccupied:
                 bot.send_message(message.chat.id, "The username is not occupied by anyone", reply_to_message_id=message.id)
                 return
@@ -181,14 +181,9 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
             time.sleep(3)
 
     else:
-        bot.send_message(message.chat.id, "Send a Valid link. Bro, press /help for more info.")
+        bot.send_message(message.chat.id, "**Send a Valid link. Bro, press /help for more info**.")
 #forcesub
 def handle_force_subscribe(bot, message):
-    try:
-        invite_link = bot.create_chat_invite_link(int(CHANNEL))
-    except FloodWait as e:
-        asyncio.sleep(e.x)
-        return 400
     try:
         user = bot.get_chat_member(int(CHANNEL), message.from_user.id)
         if user.status == "kicked":
@@ -201,7 +196,7 @@ def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         bot.send_message(
             chat_id=message.from_user.id,
-            text="You have to join  @RajZ_bots to use me.\n First join this channel then use me."
+            text="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
 	)
         return 400
     except Exception:
