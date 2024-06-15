@@ -178,8 +178,6 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
                 bot.copy_message(message.chat.id, msg.chat.id, msg.id)
             except Exception as e:
                 bot.send_message(message.chat.id,f"Error : {e}")
-            except ValueError as v:
-                bot.send_message(message.chat.id,f"Error : {v}")
             time.sleep(3)
 
     else:
@@ -198,7 +196,8 @@ def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         bot.send_message(
             chat_id=message.from_user.id,
-            text="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
+            gif_url = "https://graph.org/file/17dfe4e5ae8403698166d.gif"
+            caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
 	)
         return 400
     except Exception:
