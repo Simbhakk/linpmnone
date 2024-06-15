@@ -162,7 +162,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
         except:
             toID = fromID
 
-        for msgid in range(fromID, fromId+1):
+        for msgid in range(fromID, fromID+1):
             username = datas[3]
             try:
                 msg = bot.get_messages(username, msgid)
