@@ -200,7 +200,7 @@ def handle_force_subscribe(bot, message):
             chat_id=message.from_user.id,
             gif_url,
             caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
-	)
+        )
         return 400
     except Exception:
         bot.send_message(
