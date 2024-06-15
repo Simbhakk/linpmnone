@@ -1,3 +1,4 @@
+import pyrogram
 from pyrogram import Client, filters, enums
 from pyrogram.errors import UsernameNotOccupied, FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply, Message
