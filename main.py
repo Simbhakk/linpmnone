@@ -178,6 +178,8 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
                 bot.copy_message(message.chat.id, msg.chat.id, msg.id)
             except Exception as e:
                 bot.send_message(message.chat.id,f"Error : {e}")
+            except ValueError as v:
+                bot.send_message(message.chat.id,f"Error : {v}")
             time.sleep(3)
 
     else:
