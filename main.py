@@ -194,9 +194,10 @@ def handle_force_subscribe(bot, message):
             )
             return 400
     except UserNotParticipant:
+    gif_url = "https://graph.org/file/17dfe4e5ae8403698166d.gif"
         bot.send_animation(
             chat_id=message.from_user.id,
-            gif_url = "https://graph.org/file/17dfe4e5ae8403698166d.gif",
+            gif_url,
             caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
 	)
         return 400
