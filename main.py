@@ -182,6 +182,8 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 
     else:
         bot.send_message(message.chat.id, "**Send a Valid link. Bro, press /help for more info**.")
+#define
+gif_url = "https://graph.org/file/17dfe4e5ae8403698166d.gif"
 #forcesub
 def handle_force_subscribe(bot, message):
     try:
@@ -194,7 +196,6 @@ def handle_force_subscribe(bot, message):
             )
             return 400
     except UserNotParticipant:
-    gif_url = "https://graph.org/file/17dfe4e5ae8403698166d.gif"
         bot.send_animation(
             chat_id=message.from_user.id,
             gif_url,
