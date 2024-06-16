@@ -196,6 +196,9 @@ def handle_force_subscribe(bot, message):
             )
             return 400
     except UserNotParticipant:
+        aman = bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
+        asyncio.sleep(5)
+        aman.delete()
         bot.send_animation(
             chat_id=message.from_user.id,
             animation = 'https://graph.org/file/a9722ae57ae3d469cefb7.mp4',
@@ -204,9 +207,6 @@ def handle_force_subscribe(bot, message):
                     [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
                 ]
             ))
-        aman = bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
-        asyncio.sleep(10)
-        aman.delete()
         return 400
 
     except Exception:
