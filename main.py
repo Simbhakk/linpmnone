@@ -198,7 +198,7 @@ def handle_force_subscribe(bot, message):
         bot.send_animation(
             chat_id=message.from_user.id,
             animation = 'https://graph.org/file/a9722ae57ae3d469cefb7.mp4',
-            caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
+            caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
