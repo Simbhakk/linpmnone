@@ -198,12 +198,12 @@ def handle_force_subscribe(bot, message):
         bot.send_animation(
             chat_id=message.from_user.id,
             animation = 'https://graph.org/file/a9722ae57ae3d469cefb7.mp4',
-            caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
                 ]
             ))
+        bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
         return 400
 
     except Exception:
@@ -214,17 +214,6 @@ def handle_force_subscribe(bot, message):
         )
         return 400
 # get the type of message
-@bot.on_message(filters.command('users'))
-def get_users(client, message):
-    msg = client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
-    users = full_userbase()
-    msg.edit(f"{len(users)} users are using this bot",
-    reply_markup=InlineKeyboardMarkup(
-        [
-            [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
-        ]
-    ))
-#
 def get_message_type(msg: pyrogram.types.messages_and_media.message.Message):
 	try:
 		msg.document.file_id
