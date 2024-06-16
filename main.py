@@ -144,7 +144,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
         bot.send_message(message.chat.id, "Bot supports only public restricted channel.")
         return
     link = message.text
-    if link.startswith("http") or link.startswith("www"):
+    if link.startswith("http"):
         if message.from_user.id in last_message_time:
             time_diff = time.time() - last_message_time[message.from_user.id]
             if time_diff < time_limit:
@@ -197,9 +197,13 @@ def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         bot.send_animation(
             chat_id=message.from_user.id,
-            animation = 'https://graph.org/file/17dfe4e5ae8403698166d.gif',
+            animation = 'https://graph.org/file/a9722ae57ae3d469cefb7.mp4',
             caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
-        )
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
+                ]
+            ))
         return 400
 
     except Exception:
@@ -210,6 +214,17 @@ def handle_force_subscribe(bot, message):
         )
         return 400
 # get the type of message
+@bot.on_message(filters.command('users'))
+def get_users(client, message):
+    msg = client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
+    users = full_userbase()
+    msg.edit(f"{len(users)} users are using this bot",
+    reply_markup=InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
+        ]
+    ))
+#
 def get_message_type(msg: pyrogram.types.messages_and_media.message.Message):
 	try:
 		msg.document.file_id
