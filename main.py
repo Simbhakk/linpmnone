@@ -18,7 +18,7 @@ last_message_time = {}
 
 WAIT_MSG = """"<b>Processing ...</b>"""
 REPLY_ERROR = 'error found'
-START_TEXT = 'Hi👋, I am Save Restricted Content Bot.\n\n**•FROM PUBLIC CHANNELS**\n-Send direct message/video link to clone it here.\nExample- `https://t.me/RajZ_bots/72`\n\n🚨`NOTE:-` Our bot does not support \nPRIVATE CHANNEL/GROUP.\n\nJoin for update:- @Save_Restricted_contentz'
+START_TEXT = 'Hi👋, I am Save Restricted Content Bot.\n\n**•FROM PUBLIC CHANNELS**\n-Send direct message/video link to clone it here.\nExample- `https://t.me/RajZ_bots/72`\n\n🚨`NOTE:-` Our bot does not support \nPRIVATE CHANNEL/GROUP.\n\nBot has time limit of 30 sec.\nJoin for update:- @Save_Restricted_contentz'
 #config
 def getenv(var): return os.environ.get(var) or DATA.get(var, None)
 
@@ -26,7 +26,7 @@ bot_token = getenv("TOKEN")
 api_hash = getenv("HASH") 
 api_id = getenv("ID")
 CHANNEL = getenv("CHANNEL")
-time_limit = 63
+time_limit = 36
 
 bot = Client("mybot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 #close
@@ -197,8 +197,8 @@ def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         bot.send_animation(
             chat_id=message.from_user.id,
-            animation = 'https://graph.org/file/17dfe4e5ae8403698166d.gif',
-            caption="**You have to join  @RajZ_bots to use me.\n First join this channel then use me**."
+            animation = 'https://graph.org/file/a9722ae57ae3d469cefb7.mp4',
+            caption="**⚠️Join Alert- You have to join @RajZ_bots to use me.\n First join this channel then use me**."
         )
         return 400
 
