@@ -7,6 +7,7 @@ from database import add_user, del_user, full_userbase, present_user
 import logging
 import time
 import os
+import asyncio
 import threading
 import json
 
@@ -203,7 +204,9 @@ def handle_force_subscribe(bot, message):
                     [InlineKeyboardButton('👁️ Close', callback_data='cancel')]
                 ]
             ))
-        bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
+        aman = bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
+        asyncio.sleep(10)
+        aman.delete()
         return 400
 
     except Exception:
