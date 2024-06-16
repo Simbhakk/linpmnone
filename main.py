@@ -197,7 +197,7 @@ def handle_force_subscribe(bot, message):
             return 400
     except UserNotParticipant:
         aman = bot.send_message(chat_id=message.from_user.id, text='Join my update channel @Rajz_bots to use me.')
-        asyncio.sleep(5)
+        asyncio.sleep(50)
         aman.delete()
         bot.send_animation(
             chat_id=message.from_user.id,
